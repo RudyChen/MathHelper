@@ -1,0 +1,80 @@
+﻿<Window x:Class="TextCanvas.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:local="clr-namespace:TextCanvas"
+        Title="MainWindow" Height="500" Width="800" Loaded="Window_Loaded" LostFocus="Window_LostFocus"     >
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Border BorderBrush="Blue" BorderThickness="1" Grid.Row="0">
+            <StackPanel>
+                <DockPanel>
+                    <Button DockPanel.Dock="Right" Click="DrawTextBoxText_Click">Draw</Button>
+                    <TextBox x:Name="drawTextBox"  DockPanel.Dock="Right" AcceptsReturn="True"></TextBox>
+                </DockPanel>
+                <Border BorderBrush="Red" BorderThickness="1">
+                    <Canvas Height="100" Name="testCanvas">
+
+                    </Canvas>
+                </Border>
+                <local:WorkPanel x:Name="textContainer"  Height="100">
+
+                </local:WorkPanel>
+            </StackPanel>
+        </Border>
+
+        <DockPanel Grid.Row="1" >
+            <Grid  Background="#FF333333">
+                <Canvas DockPanel.Dock="Left" Width="156">
+                    <Button Style="{StaticResource ResourceKey=GlassButton}" Width="60" Height="60" Background="Blue" VerticalAlignment="Bottom" HorizontalAlignment="Left" Canvas.Top="165" Canvas.Left="15"></Button>
+                    <Button Style="{StaticResource ResourceKey=GlassButton}" Width="36" Height="36" Background="Blue" VerticalAlignment="Bottom" HorizontalAlignment="Left" Canvas.Left="56" Canvas.Top="105" RenderTransformOrigin="1.111,-0.139"></Button>
+                    <Button Style="{StaticResource ResourceKey=GlassButton}" Width="36" Height="36" Background="Blue" VerticalAlignment="Bottom" HorizontalAlignment="Left" Canvas.Left="105" Canvas.Top="193"></Button>
+                    <Button Style="{StaticResource ResourceKey=GlassButton}" Width="36" Height="36" Background="Blue" VerticalAlignment="Bottom" HorizontalAlignment="Left" Canvas.Left="92" Canvas.Top="144"></Button>
+                    <Button Style="{StaticResource ResourceKey=GlassButton}" Width="36" Height="36" Background="Blue" VerticalAlignment="Bottom" HorizontalAlignment="Left" Canvas.Top="104" Canvas.Left="4"></Button>
+                </Canvas>
+            </Grid>
+            <UniformGrid DockPanel.Dock="Left" Width="160">
+                <Button Width="32" Height="32" Content="1"></Button>
+                <Button Width="32" Height="32" Content="2"></Button>
+                <Button Width="32" Height="32" Content="3"></Button>
+                <Button Width="32" Height="32" Content="4"></Button>
+                <Button Width="32" Height="32" Content="5"></Button>
+                <Button Width="32" Height="32" Content="6"></Button>
+                <Button Width="32" Height="32" Content="7"></Button>
+                <Button Width="32" Height="32" Content="8"></Button>
+                <Button Width="32" Height="32" Content="9"></Button>
+                <Button Width="32" Height="32" Content="0"></Button>
+                <Button Width="32" Height="32" Content="+"></Button>
+                <Button Width="32" Height="32" Content="-"></Button>
+                <Button Width="32" Height="32" Content="×"></Button>
+                <Button Width="32" Height="32" Content="÷"></Button>
+                <Button Width="32" Height="32" Content="="></Button>
+                <Button Width="32" Height="32" Content="."></Button>
+            </UniformGrid>            
+            <UniformGrid DockPanel.Dock="Left" Width="160">
+                <Button Width="32" Height="32" Content="x" FontFamily="Times New Roman" FontStyle="Italic"></Button>
+                <Button Width="32" Height="32" Content="y" FontFamily="Times New Roman" FontStyle="Italic"></Button>
+                <Button Width="32" Height="32" Content="z" FontFamily="Times New Roman" FontStyle="Italic"></Button>
+                <Button Width="32" Height="32" Content="m" FontFamily="Times New Roman" FontStyle="Italic"></Button>
+                <Button Width="32" Height="32" Content="n" FontFamily="Times New Roman" FontStyle="Italic"></Button>
+                <Button Width="32" Height="32" Content="l" FontFamily="Times New Roman" FontStyle="Italic"></Button>
+                <Button Width="32" Height="32" Content="k" FontFamily="Times New Roman" FontStyle="Italic"></Button>
+                <Button Width="32" Height="32" Content="g" FontFamily="Times New Roman" FontStyle="Italic"></Button>
+                <Button Width="32" Height="32" Content="f" FontFamily="Times New Roman" FontStyle="Italic"></Button>
+                
+                <Button Width="32" Height="32" Content="A"></Button>
+                <Button Width="32" Height="32" Content="B"></Button>
+                <Button Width="32" Height="32" Content="C"></Button>
+                <Button Width="32" Height="32" Content="D"></Button>
+                <Button Width="32" Height="32" Content="E"></Button>
+                <Button Width="32" Height="32" Content="F"></Button>
+                <Button Width="32" Height="32" Content="G"></Button>
+            </UniformGrid>
+            <DockPanel>
+                
+            </DockPanel>
+        </DockPanel>
+    </Grid>
+</Window>
