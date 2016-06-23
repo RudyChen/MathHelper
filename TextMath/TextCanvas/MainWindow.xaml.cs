@@ -29,11 +29,16 @@ namespace TextCanvas
         Caret caret = new Caret(false);
         System.Threading.Timer caretTimer;
         int blinkPeriod = 600;
-
+        IntPtr windowPtr = IntPtr.Zero;
         public MainWindow()
         {
             InitializeComponent();
-           
+            DrawingVisual textBoxVisual = new DrawingVisual();
+            DrawText(textBoxVisual, new Point(0, 10));
+            windowPtr= new WindowInteropHelper(this).Handle; 
+            textContainer.Focus();
+            CaretManager.CreateCaret(windowPtr,IntPtr.Zero, 3, 24);
+
         }
 
         void blinkCaret(Object state)
@@ -46,11 +51,10 @@ namespace TextCanvas
         private void DrawTextBoxText_Click(object sender, RoutedEventArgs e)
         {
             Stopwatch stopWatch = new Stopwatch();
-            textContainer.ClearVisuals();
+            
 
             stopWatch.Start();
-            DrawingVisual textBoxVisual = new DrawingVisual();
-            DrawText(textBoxVisual, new Point(0, 10));
+           
             stopWatch.Stop();
             Console.WriteLine("used time :" + stopWatch.ElapsedMilliseconds);
         }
@@ -168,6 +172,11 @@ namespace TextCanvas
         {
             //IntPtr hwnd = new WindowInteropHelper(this).Handle;
             //CaretManager.DestoryCaret(hwnd);
+            
+        }
+
+        private void textContainer_LostFocus(object sender, RoutedEventArgs e)
+        {
             
         }
     }
