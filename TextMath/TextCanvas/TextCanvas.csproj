@@ -53,6 +53,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="BindingCommand.cs" />
     <Compile Include="Block.cs" />
     <Compile Include="Caret.cs" />
     <Compile Include="CaretManager.cs" />
@@ -62,10 +63,12 @@
     <Compile Include="FractionBlock.cs" />
     <Compile Include="DrawBlocks\LineBlock.cs" />
     <Compile Include="LogarithmBlock.cs" />
+    <Compile Include="MainWindowViewModel.cs" />
     <Compile Include="MathBlock.cs" />
     <Compile Include="RadicalBlock.cs" />
     <Compile Include="TextBlock.cs" />
     <Compile Include="Vector.cs" />
+    <Compile Include="ViewModelBase.cs" />
     <Compile Include="WorkPanel.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>

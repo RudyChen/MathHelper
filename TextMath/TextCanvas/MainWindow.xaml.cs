@@ -28,13 +28,18 @@ namespace TextCanvas
 
         Caret caret = new Caret(false);
         IntPtr winPtr = IntPtr.Zero;
-        IntPtr canvasPtr= IntPtr.Zero; 
+        IntPtr canvasPtr= IntPtr.Zero;
+        private bool isCaretExistInCanvas = false;
+        MainWindowViewModel viewModel = new MainWindowViewModel();
         public MainWindow()
         {
             InitializeComponent();
             DrawingVisual textBoxVisual = new DrawingVisual();
             DrawText(textBoxVisual, new Point(0, 10));
-            winPtr= new WindowInteropHelper(this).Handle; 
+            winPtr= new WindowInteropHelper(this).Handle;
+
+           
+            this.DataContext = viewModel;
             //textContainer.Focus();
         }
 
@@ -122,6 +127,7 @@ namespace TextCanvas
                 CaretManager.CreateCaret(canvasPtr, IntPtr.Zero, 3, 15);
                 CaretManager.SetCaretPos(500, 200);
                 CaretManager.ShowCaret(canvasPtr);
+                isCaretExistInCanvas = true;
             }
             //winPtr = new WindowInteropHelper(this).Handle;
             //if (winPtr != IntPtr.Zero)
@@ -140,6 +146,7 @@ namespace TextCanvas
                 CaretManager.HideCaret(canvasPtr);
                 //CaretManager.DestroyCaret(canvasPtr);
                 CaretManager.DestroyCaret();
+                isCaretExistInCanvas = false;
             }
             //if (winPtr != IntPtr.Zero)
             //{
@@ -160,27 +167,33 @@ namespace TextCanvas
         }
 
         private void textContainer_GotFocus(object sender, RoutedEventArgs e)
-        {            
-            //if (canvasPtr != IntPtr.Zero)
-            //{
-            //    CaretManager.CreateCaret(canvasPtr, IntPtr.Zero, 3, 15);
-            //    CaretManager.SetCaretPos(500, 200);
-            //    CaretManager.ShowCaret(canvasPtr);
-            //}
+        {
+            canvasPtr = ((HwndSource)PresentationSource.FromVisual(textContainer)).Handle;
+            if (canvasPtr != IntPtr.Zero&& !isCaretExistInCanvas)
+            {
+                CaretManager.CreateCaret(canvasPtr, IntPtr.Zero, 3, 15);
+                CaretManager.SetCaretPos(500, 200);
+                CaretManager.ShowCaret(canvasPtr);
+                isCaretExistInCanvas = true;
+            }
         }
 
         private void textContainer_LostFocus(object sender, RoutedEventArgs e)
         {
-            //if (canvasPtr != IntPtr.Zero)
-            //{
-            //    CaretManager.HideCaret(canvasPtr);
-            //    CaretManager.DestroyCaret(canvasPtr);
-            //}
+            
+            canvasPtr = ((HwndSource)PresentationSource.FromVisual(textContainer)).Handle;
+            if (canvasPtr != IntPtr.Zero)
+            {
+                CaretManager.HideCaret(canvasPtr);
+                CaretManager.DestroyCaret(canvasPtr);
+                isCaretExistInCanvas = false;
+            }
+           
         }
 
         private void textContainer_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            textContainer.Focus();
+            textContainer.Focus();//InputManager.Current.PrimaryKeyboardDevice
         }
     }
 }

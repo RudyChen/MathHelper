@@ -48,3 +48,19 @@ F:\GitHub\MathHelper\MathHelper\TextMath\TextCanvas\obj\Debug\Resources\Exceptio
 F:\GitHub\MathHelper\MathHelper\TextMath\TextCanvas\obj\Debug\TextCanvas.g.resources
 F:\GitHub\MathHelper\MathHelper\TextMath\TextCanvas\obj\Debug\TextCanvas.Properties.Resources.resources
 F:\GitHub\MathHelper\MathHelper\TextMath\TextCanvas\obj\Debug\TextCanvas.csproj.GenerateResource.Cache
+D:\Git Projects\MathHelper\TextMath\TextCanvas\bin\Debug\TextCanvas.exe
+D:\Git Projects\MathHelper\TextMath\TextCanvas\bin\Debug\TextCanvas.pdb
+D:\Git Projects\MathHelper\TextMath\TextCanvas\obj\Debug\Resources\GlassButton.baml
+D:\Git Projects\MathHelper\TextMath\TextCanvas\obj\Debug\App.baml
+D:\Git Projects\MathHelper\TextMath\TextCanvas\obj\Debug\MainWindow.g.cs
+D:\Git Projects\MathHelper\TextMath\TextCanvas\obj\Debug\App.g.cs
+D:\Git Projects\MathHelper\TextMath\TextCanvas\obj\Debug\GeneratedInternalTypeHelper.g.cs
+D:\Git Projects\MathHelper\TextMath\TextCanvas\obj\Debug\TextCanvas_MarkupCompile.cache
+D:\Git Projects\MathHelper\TextMath\TextCanvas\obj\Debug\TextCanvas_MarkupCompile.lref
+D:\Git Projects\MathHelper\TextMath\TextCanvas\obj\Debug\MainWindow.baml
+D:\Git Projects\MathHelper\TextMath\TextCanvas\obj\Debug\Resources\ExceptionResources.baml
+D:\Git Projects\MathHelper\TextMath\TextCanvas\obj\Debug\TextCanvas.g.resources
+D:\Git Projects\MathHelper\TextMath\TextCanvas\obj\Debug\TextCanvas.Properties.Resources.resources
+D:\Git Projects\MathHelper\TextMath\TextCanvas\obj\Debug\TextCanvas.csproj.GenerateResource.Cache
+D:\Git Projects\MathHelper\TextMath\TextCanvas\obj\Debug\TextCanvas.exe
+D:\Git Projects\MathHelper\TextMath\TextCanvas\obj\Debug\TextCanvas.pdb

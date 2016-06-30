@@ -9,9 +9,8 @@
             <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
         <Border BorderBrush="Blue" BorderThickness="1" Grid.Row="0">
-            <DockPanel>
-                <TextBox DockPanel.Dock="Top" Name="textTextBox"></TextBox>
-                <local:WorkPanel x:Name="textContainer"  IsHitTestVisible="True" Focusable="True" GotFocus="textContainer_GotFocus" LostFocus="textContainer_LostFocus" PreviewMouseLeftButtonDown="textContainer_PreviewMouseLeftButtonDown">
+            <DockPanel>                           
+                <local:WorkPanel x:Name="textContainer" Background="White" IsHitTestVisible="True" Focusable="True" GotFocus="textContainer_GotFocus" LostFocus="textContainer_LostFocus" PreviewMouseLeftButtonDown="textContainer_PreviewMouseLeftButtonDown">
 
                 </local:WorkPanel>
             </DockPanel>
@@ -28,41 +27,42 @@
                 </Canvas>
             </Grid>
             <UniformGrid DockPanel.Dock="Left" Width="160">
-                <Button Width="32" Height="32" Content="1"></Button>
-                <Button Width="32" Height="32" Content="2"></Button>
-                <Button Width="32" Height="32" Content="3"></Button>
-                <Button Width="32" Height="32" Content="4"></Button>
-                <Button Width="32" Height="32" Content="5"></Button>
-                <Button Width="32" Height="32" Content="6"></Button>
-                <Button Width="32" Height="32" Content="7"></Button>
-                <Button Width="32" Height="32" Content="8"></Button>
-                <Button Width="32" Height="32" Content="9"></Button>
-                <Button Width="32" Height="32" Content="0"></Button>
+                <Button Width="32" Height="32" Content="ζ" Command="{Binding Path=CharInputCommand}" CommandParameter="{Binding Path=Content, RelativeSource={RelativeSource Self}}"></Button>
+                <Button Width="32" Height="32" Content="2" Command="{Binding Path=CharInputCommand}" CommandParameter="{Binding Path=Content, RelativeSource={RelativeSource Self}}"></Button>
+                <Button Width="32" Height="32" Content="3" Command="{Binding Path=CharInputCommand}" CommandParameter="{Binding Path=Content, RelativeSource={RelativeSource Self}}"></Button>
+                <Button Width="32" Height="32" Content="4" Command="{Binding Path=CharInputCommand}" CommandParameter="{Binding Path=Content, RelativeSource={RelativeSource Self}}"></Button>
+                <Button Width="32" Height="32" Content="5" Command="{Binding Path=CharInputCommand}" CommandParameter="{Binding Path=Content, RelativeSource={RelativeSource Self}}"></Button>
+                <Button Width="32" Height="32" Content="6" Command="{Binding Path=CharInputCommand}" CommandParameter="{Binding Path=Content, RelativeSource={RelativeSource Self}}"></Button>
+                <Button Width="32" Height="32" Content="7" Command="{Binding Path=CharInputCommand}" CommandParameter="{Binding Path=Content, RelativeSource={RelativeSource Self}}"></Button>
+                <Button Width="32" Height="32" Content="8" Command="{Binding Path=CharInputCommand}" CommandParameter="{Binding Path=Content, RelativeSource={RelativeSource Self}}"></Button>
+                <Button Width="32" Height="32" Content="9" Command="{Binding Path=CharInputCommand}" CommandParameter="{Binding Path=Content, RelativeSource={RelativeSource Self}}"></Button>
+                <Button Width="32" Height="32" Content="0" Command="{Binding Path=CharInputCommand}" CommandParameter="{Binding Path=Content, RelativeSource={RelativeSource Self}}"></Button>
                 <Button Width="32" Height="32" Content="+"></Button>
                 <Button Width="32" Height="32" Content="-"></Button>
                 <Button Width="32" Height="32" Content="×"></Button>
                 <Button Width="32" Height="32" Content="÷"></Button>
                 <Button Width="32" Height="32" Content="="></Button>
-                <Button Width="32" Height="32" Content="."></Button>
+                <Button Width="32" Height="32" Content="." Command="{Binding Path=CharInputCommand}" CommandParameter="{Binding Path=Content, RelativeSource={RelativeSource Self}}"></Button>
             </UniformGrid>
             <UniformGrid DockPanel.Dock="Left" Width="160">
-                <Button Width="32" Height="32" Content="x" FontFamily="Times New Roman" FontStyle="Italic"></Button>
-                <Button Width="32" Height="32" Content="y" FontFamily="Times New Roman" FontStyle="Italic"></Button>
-                <Button Width="32" Height="32" Content="z" FontFamily="Times New Roman" FontStyle="Italic"></Button>
-                <Button Width="32" Height="32" Content="m" FontFamily="Times New Roman" FontStyle="Italic"></Button>
-                <Button Width="32" Height="32" Content="n" FontFamily="Times New Roman" FontStyle="Italic"></Button>
-                <Button Width="32" Height="32" Content="l" FontFamily="Times New Roman" FontStyle="Italic"></Button>
-                <Button Width="32" Height="32" Content="k" FontFamily="Times New Roman" FontStyle="Italic"></Button>
-                <Button Width="32" Height="32" Content="g" FontFamily="Times New Roman" FontStyle="Italic"></Button>
-                <Button Width="32" Height="32" Content="C" Margin="4,14,4,13"/>
-                <Button Width="32" Height="32" Content="f" FontFamily="Times New Roman" FontStyle="Italic"></Button>
+                <Button Width="32" Height="32" Content="x" FontFamily="Times New Roman" FontStyle="Italic" Command="{Binding Path=CharInputCommand}" CommandParameter="{Binding Path=Content, RelativeSource={RelativeSource Self}}"></Button>
+                <Button Width="32" Height="32" Content="y" FontFamily="Times New Roman" FontStyle="Italic" Command="{Binding Path=CharInputCommand}" CommandParameter="{Binding Path=Content, RelativeSource={RelativeSource Self}}"></Button>
+                <Button Width="32" Height="32" Content="z" FontFamily="Times New Roman" FontStyle="Italic" Command="{Binding Path=CharInputCommand}" CommandParameter="{Binding Path=Content, RelativeSource={RelativeSource Self}}"></Button>
+                <Button Width="32" Height="32" Content="m" FontFamily="Times New Roman" FontStyle="Italic" Command="{Binding Path=CharInputCommand}" CommandParameter="{Binding Path=Content, RelativeSource={RelativeSource Self}}"></Button>
+                <Button Width="32" Height="32" Content="n" FontFamily="Times New Roman" FontStyle="Italic" Command="{Binding Path=CharInputCommand}" CommandParameter="{Binding Path=Content, RelativeSource={RelativeSource Self}}"></Button>
+                <Button Width="32" Height="32" Content="l" FontFamily="Times New Roman" FontStyle="Italic" Command="{Binding Path=CharInputCommand}" CommandParameter="{Binding Path=Content, RelativeSource={RelativeSource Self}}"></Button>
+                <Button Width="32" Height="32" Content="k" FontFamily="Times New Roman" FontStyle="Italic" Command="{Binding Path=CharInputCommand}" CommandParameter="{Binding Path=Content, RelativeSource={RelativeSource Self}}"></Button>
+                <Button Width="32" Height="32" Content="g" FontFamily="Times New Roman" FontStyle="Italic" Command="{Binding Path=CharInputCommand}" CommandParameter="{Binding Path=Content, RelativeSource={RelativeSource Self}}"></Button>
+               
+                <Button Width="32" Height="32" Content="f" FontFamily="Times New Roman" FontStyle="Italic" Command="{Binding Path=CharInputCommand}" CommandParameter="{Binding Path=Content, RelativeSource={RelativeSource Self}}"></Button>
 
-                <Button Width="32" Height="32" Content="A"></Button>
-                <Button Width="32" Height="32" Content="B"></Button>
-                <Button Width="32" Height="32" Content="D"></Button>
-                <Button Width="32" Height="32" Content="E"></Button>
-                <Button Width="32" Height="32" Content="F"></Button>
-                <Button Width="32" Height="32" Content="G"></Button>
+                <Button Width="32" Height="32" Content="A" Command="{Binding Path=CharInputCommand}" CommandParameter="{Binding Path=Content, RelativeSource={RelativeSource Self}}"></Button>
+                <Button Width="32" Height="32" Content="B" Command="{Binding Path=CharInputCommand}" CommandParameter="{Binding Path=Content, RelativeSource={RelativeSource Self}}"></Button>
+                <Button Width="32" Height="32" Content="C" Command="{Binding Path=CharInputCommand}" CommandParameter="{Binding Path=Content, RelativeSource={RelativeSource Self}}"/>
+                <Button Width="32" Height="32" Content="D" Command="{Binding Path=CharInputCommand}" CommandParameter="{Binding Path=Content, RelativeSource={RelativeSource Self}}"></Button>
+                <Button Width="32" Height="32" Content="E" Command="{Binding Path=CharInputCommand}" CommandParameter="{Binding Path=Content, RelativeSource={RelativeSource Self}}"></Button>
+                <Button Width="32" Height="32" Content="F" Command="{Binding Path=CharInputCommand}" CommandParameter="{Binding Path=Content, RelativeSource={RelativeSource Self}}"></Button>
+                <Button Width="32" Height="32" Content="G" Command="{Binding Path=CharInputCommand}" CommandParameter="{Binding Path=Content, RelativeSource={RelativeSource Self}}"></Button>
             </UniformGrid>
             <DockPanel>
 
