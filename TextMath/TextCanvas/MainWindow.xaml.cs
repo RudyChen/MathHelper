@@ -104,7 +104,8 @@ namespace TextCanvas
             if (canvasPtr != IntPtr.Zero)
             {
                 CaretManager.HideCaret(canvasPtr);
-                CaretManager.DestroyCaret(canvasPtr);
+                //CaretManager.DestroyCaret(canvasPtr);
+                CaretManager.DestroyCaret();
             }
             //if (winPtr != IntPtr.Zero)
             //{
@@ -137,7 +138,8 @@ namespace TextCanvas
             if (canvasPtr != IntPtr.Zero)
             {
                 CaretManager.HideCaret(canvasPtr);
-                CaretManager.DestroyCaret(canvasPtr);
+                //CaretManager.DestroyCaret(canvasPtr);
+                CaretManager.DestroyCaret();
             }
             //if (winPtr != IntPtr.Zero)
             //{

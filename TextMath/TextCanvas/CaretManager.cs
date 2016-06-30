@@ -22,5 +22,8 @@ namespace TextCanvas
 
         [DllImport("user32.dll")]
         public static extern bool DestroyCaret(IntPtr hWnd);
+
+        [DllImport("user32.dll", CharSet = CharSet.Auto, SetLastError = true)]
+        public static extern bool DestroyCaret();
     }
 }
