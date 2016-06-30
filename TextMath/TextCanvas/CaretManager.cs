@@ -20,7 +20,7 @@ namespace TextCanvas
         [DllImport("user32.dll")]
         public static extern bool SetCaretPos(int x, int y);
 
-        [DllImport("user32.dl")]
-        public static extern bool DestoryCaret(IntPtr hWnd);
+        [DllImport("user32.dll")]
+        public static extern bool DestroyCaret(IntPtr hWnd);
     }
 }

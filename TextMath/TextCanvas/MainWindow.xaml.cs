@@ -27,39 +27,17 @@ namespace TextCanvas
         private Pen drawingPen = new Pen(Brushes.SteelBlue, 3);
 
         Caret caret = new Caret(false);
-        System.Threading.Timer caretTimer;
-        int blinkPeriod = 600;
-        IntPtr windowPtr = IntPtr.Zero;
+        IntPtr winPtr = IntPtr.Zero;
+        IntPtr canvasPtr= IntPtr.Zero; 
         public MainWindow()
         {
             InitializeComponent();
             DrawingVisual textBoxVisual = new DrawingVisual();
             DrawText(textBoxVisual, new Point(0, 10));
-            windowPtr= new WindowInteropHelper(this).Handle; 
-            textContainer.Focus();
-            CaretManager.CreateCaret(windowPtr,IntPtr.Zero, 3, 24);
-
+            winPtr= new WindowInteropHelper(this).Handle; 
+            //textContainer.Focus();
         }
 
-        void blinkCaret(Object state)
-        {
-            caret.ToggleVisibility();          
-        }
-
-
-        DrawingVisual textVisual = null;
-        private void DrawTextBoxText_Click(object sender, RoutedEventArgs e)
-        {
-            Stopwatch stopWatch = new Stopwatch();
-            
-
-            stopWatch.Start();
-           
-            stopWatch.Stop();
-            Console.WriteLine("used time :" + stopWatch.ElapsedMilliseconds);
-        }
-        static string customerString = "Ω";
-        static char[] specialCharSet = new char[] { 'Ω', '°' };
         public void DrawText(DrawingVisual visual, Point textStartPoint)
         {
             #region 分数
@@ -104,80 +82,103 @@ namespace TextCanvas
             radicalBlock.Children.Add(radicalTextBlock);
             radicalBlock.Draw(textContainer, new Point(180, 100));
             #endregion
-
-
-            /*
-            using (DrawingContext dc=visual.RenderOpen())
-            {
-                
-                string unicodeString = drawTextBox.Text;
-                FormattedText textFormat = new FormattedText(customerString, CultureInfo.CurrentCulture, FlowDirection.LeftToRight, new Typeface(new FontFamily("file:///C:\\Windows\\Fonts\\#微软雅黑"),
-                                                 FontStyles.Normal,
-                                                 FontWeights.Normal,
-                                                 FontStretches.Condensed), 24, textBrush);
-                FormattedText topRightFormat = new FormattedText("2X*5÷7Y", CultureInfo.CurrentCulture, FlowDirection.LeftToRight, new Typeface(new FontFamily("file:///C:\\Windows\\Fonts\\#微软雅黑"),
-                                                 FontStyles.Normal,
-                                                 FontWeights.Normal,
-                                                 FontStretches.Condensed), 12, textBrush);
-                dc.DrawText(textFormat, textStartPoint);
-                double[] textWidthes=textFormat.GetMaxTextWidths();
-                double textWidth= textFormat.Width;
-                double textWidthWithWhiteSpace= textFormat.WidthIncludingTrailingWhitespace;
-                int topX = Convert.ToInt32(textWidthWithWhiteSpace) + 2;
-
-                int topY = (int)(textStartPoint.Y - 2);
-                dc.DrawText(topRightFormat, new Point(topX, topY));
-                textContainer.AddVisual(visual);
-                
-                    
-
-            }
-            */
-        }
-
-        private void Canvas_MouseEnter(object sender, MouseEventArgs e)
-        {
-            if (this.Cursor != Cursors.IBeam)
-            {
-                this.Cursor = Cursors.IBeam;
-
-            }
-
-        }
-
-        private void Canvas_MouseLeave(object sender, MouseEventArgs e)
-        {
-            this.Cursor = Cursors.Arrow;
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            //IntPtr hwnd = new WindowInteropHelper(this).Handle;
-            //CaretManager.CreateCaret(hwnd, IntPtr.Zero, 3, 15);
-            //CaretManager.SetCaretPos(500, 200);
-            //CaretManager.ShowCaret(hwnd);
-            Button testButton = new Button();
-            testButton.Width = 40;
-            testButton.Height = 24;
-            testButton.Content = "click me";
-            caret.Location = new Point(20, 30);
-            textContainer.Children.Add(testButton);
-            Canvas.SetLeft(testButton,50);
-            Canvas.SetTop(testButton, 20);
-            textContainer.Children.Add(caret);
-            caretTimer = new System.Threading.Timer(blinkCaret, null, blinkPeriod, blinkPeriod);
+            canvasPtr = ((HwndSource)PresentationSource.FromVisual(textContainer)).Handle;
         }
 
         private void Window_LostFocus(object sender, RoutedEventArgs e)
         {
-            //IntPtr hwnd = new WindowInteropHelper(this).Handle;
-            //CaretManager.DestoryCaret(hwnd);
-            
+            if (winPtr != IntPtr.Zero)
+            {
+                CaretManager.HideCaret(winPtr);
+                CaretManager.DestroyCaret(winPtr);
+            }
+        }      
+
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            canvasPtr = ((HwndSource)PresentationSource.FromVisual(textContainer)).Handle;
+            if (canvasPtr != IntPtr.Zero)
+            {
+                CaretManager.HideCaret(canvasPtr);
+                CaretManager.DestroyCaret(canvasPtr);
+            }
+            //if (winPtr != IntPtr.Zero)
+            //{
+            //    CaretManager.HideCaret(winPtr);
+            //    CaretManager.DestroyCaret(winPtr);
+            //}
+        }
+
+        private void Window_Activated(object sender, EventArgs e)
+        {
+            canvasPtr = ((HwndSource)PresentationSource.FromVisual(textContainer)).Handle;
+            if (canvasPtr != IntPtr.Zero)
+            {
+                CaretManager.CreateCaret(canvasPtr, IntPtr.Zero, 3, 15);
+                CaretManager.SetCaretPos(500, 200);
+                CaretManager.ShowCaret(canvasPtr);
+            }
+            //winPtr = new WindowInteropHelper(this).Handle;
+            //if (winPtr != IntPtr.Zero)
+            //{
+            //    CaretManager.CreateCaret(winPtr, IntPtr.Zero, 3, 15);
+            //    CaretManager.SetCaretPos(500, 200);
+            //    CaretManager.ShowCaret(winPtr);
+            //}            
+        }
+
+        private void Window_Deactivated(object sender, EventArgs e)
+        {
+            canvasPtr = ((HwndSource)PresentationSource.FromVisual(textContainer)).Handle;
+            if (canvasPtr != IntPtr.Zero)
+            {
+                CaretManager.HideCaret(canvasPtr);
+                CaretManager.DestroyCaret(canvasPtr);
+            }
+            //if (winPtr != IntPtr.Zero)
+            //{
+            //    CaretManager.HideCaret(winPtr);
+            //    CaretManager.DestroyCaret(winPtr);
+            //}
+        }
+
+        private void Window_GotFocus(object sender, RoutedEventArgs e)
+        {
+            //canvasPtr = new WindowInteropHelper(this).Handle;
+            //if (canvasPtr != IntPtr.Zero)
+            //{
+            //    CaretManager.CreateCaret(canvasPtr, IntPtr.Zero, 3, 15);
+            //    CaretManager.SetCaretPos(500, 200);
+            //    CaretManager.ShowCaret(canvasPtr);
+            //}
+        }
+
+        private void textContainer_GotFocus(object sender, RoutedEventArgs e)
+        {            
+            //if (canvasPtr != IntPtr.Zero)
+            //{
+            //    CaretManager.CreateCaret(canvasPtr, IntPtr.Zero, 3, 15);
+            //    CaretManager.SetCaretPos(500, 200);
+            //    CaretManager.ShowCaret(canvasPtr);
+            //}
         }
 
         private void textContainer_LostFocus(object sender, RoutedEventArgs e)
         {
-            
+            //if (canvasPtr != IntPtr.Zero)
+            //{
+            //    CaretManager.HideCaret(canvasPtr);
+            //    CaretManager.DestroyCaret(canvasPtr);
+            //}
+        }
+
+        private void textContainer_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            textContainer.Focus();
         }
     }
 }
