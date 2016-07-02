@@ -1,0 +1,5 @@
+D:\Git Projects\MathHelper\TextMath\BusinessLayer\bin\Debug\BusinessLayer.dll
+D:\Git Projects\MathHelper\TextMath\BusinessLayer\bin\Debug\BusinessLayer.pdb
+D:\Git Projects\MathHelper\TextMath\BusinessLayer\obj\Debug\BusinessLayer.csprojResolveAssemblyReference.cache
+D:\Git Projects\MathHelper\TextMath\BusinessLayer\obj\Debug\BusinessLayer.dll
+D:\Git Projects\MathHelper\TextMath\BusinessLayer\obj\Debug\BusinessLayer.pdb

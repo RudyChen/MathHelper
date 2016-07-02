@@ -1,0 +1,5 @@
+D:\Git Projects\MathHelper\TextMath\DataAccessLayer\bin\Debug\DataAccessLayer.dll
+D:\Git Projects\MathHelper\TextMath\DataAccessLayer\bin\Debug\DataAccessLayer.pdb
+D:\Git Projects\MathHelper\TextMath\DataAccessLayer\obj\Debug\DataAccessLayer.csprojResolveAssemblyReference.cache
+D:\Git Projects\MathHelper\TextMath\DataAccessLayer\obj\Debug\DataAccessLayer.dll
+D:\Git Projects\MathHelper\TextMath\DataAccessLayer\obj\Debug\DataAccessLayer.pdb

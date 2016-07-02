@@ -64,3 +64,5 @@ D:\Git Projects\MathHelper\TextMath\TextCanvas\obj\Debug\TextCanvas.Properties.R
 D:\Git Projects\MathHelper\TextMath\TextCanvas\obj\Debug\TextCanvas.csproj.GenerateResource.Cache
 D:\Git Projects\MathHelper\TextMath\TextCanvas\obj\Debug\TextCanvas.exe
 D:\Git Projects\MathHelper\TextMath\TextCanvas\obj\Debug\TextCanvas.pdb
+D:\Git Projects\MathHelper\TextMath\TextCanvas\bin\Debug\TextCanvas.exe.config
+D:\Git Projects\MathHelper\TextMath\TextCanvas\obj\Debug\TextCanvas.csprojResolveAssemblyReference.cache

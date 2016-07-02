@@ -1,0 +1,5 @@
+D:\Git Projects\MathHelper\TextMath\Models\obj\Debug\Models.csprojResolveAssemblyReference.cache
+D:\Git Projects\MathHelper\TextMath\Models\bin\Debug\Models.dll
+D:\Git Projects\MathHelper\TextMath\Models\bin\Debug\Models.pdb
+D:\Git Projects\MathHelper\TextMath\Models\obj\Debug\Models.dll
+D:\Git Projects\MathHelper\TextMath\Models\obj\Debug\Models.pdb
