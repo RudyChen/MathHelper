@@ -105,54 +105,22 @@ namespace TextCanvas
 
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
-            canvasPtr = ((HwndSource)PresentationSource.FromVisual(textContainer)).Handle;
-            if (canvasPtr != IntPtr.Zero)
-            {
-                CaretManager.HideCaret(canvasPtr);
-                //CaretManager.DestroyCaret(canvasPtr);
-                CaretManager.DestroyCaret();
-            }
-            //if (winPtr != IntPtr.Zero)
-            //{
-            //    CaretManager.HideCaret(winPtr);
-            //    CaretManager.DestroyCaret(winPtr);
-            //}
         }
 
         private void Window_Activated(object sender, EventArgs e)
         {
-            canvasPtr = ((HwndSource)PresentationSource.FromVisual(textContainer)).Handle;
-            if (canvasPtr != IntPtr.Zero)
+            if (textContainer.IsFocused)
             {
-                CaretManager.CreateCaret(canvasPtr, IntPtr.Zero, 3, 15);
-                CaretManager.SetCaretPos(500, 200);
+                CaretManager.CreateCaret(canvasPtr, IntPtr.Zero, CaretManager.Width, CaretManager.Height);
+                CaretManager.SetCaretPos((int)CaretManager.CurrentPoint.X, (int)CaretManager.CurrentPoint.Y);
                 CaretManager.ShowCaret(canvasPtr);
-                isCaretExistInCanvas = true;
             }
-            //winPtr = new WindowInteropHelper(this).Handle;
-            //if (winPtr != IntPtr.Zero)
-            //{
-            //    CaretManager.CreateCaret(winPtr, IntPtr.Zero, 3, 15);
-            //    CaretManager.SetCaretPos(500, 200);
-            //    CaretManager.ShowCaret(winPtr);
-            //}            
         }
 
         private void Window_Deactivated(object sender, EventArgs e)
         {
-            canvasPtr = ((HwndSource)PresentationSource.FromVisual(textContainer)).Handle;
-            if (canvasPtr != IntPtr.Zero)
-            {
-                CaretManager.HideCaret(canvasPtr);
-                //CaretManager.DestroyCaret(canvasPtr);
-                CaretManager.DestroyCaret();
-                isCaretExistInCanvas = false;
-            }
-            //if (winPtr != IntPtr.Zero)
-            //{
-            //    CaretManager.HideCaret(winPtr);
-            //    CaretManager.DestroyCaret(winPtr);
-            //}
+            CaretManager.DestroyCaret();
+            isCaretExistInCanvas = false;
         }
 
         private void Window_GotFocus(object sender, RoutedEventArgs e)
@@ -169,10 +137,13 @@ namespace TextCanvas
         private void textContainer_GotFocus(object sender, RoutedEventArgs e)
         {
             canvasPtr = ((HwndSource)PresentationSource.FromVisual(textContainer)).Handle;
-            if (canvasPtr != IntPtr.Zero&& !isCaretExistInCanvas)
+            if (canvasPtr != IntPtr.Zero)
             {
-                CaretManager.CreateCaret(canvasPtr, IntPtr.Zero, 3, 15);
-                CaretManager.SetCaretPos(500, 200);
+                CaretManager.Width = 5;
+                CaretManager.Height = 40;
+                CaretManager.CurrentPoint = new Point(500, 200);
+                CaretManager.CreateCaret(canvasPtr, IntPtr.Zero, CaretManager.Width, CaretManager.Height);
+                CaretManager.SetCaretPos((int)CaretManager.CurrentPoint.X,(int)CaretManager.CurrentPoint.Y);
                 CaretManager.ShowCaret(canvasPtr);
                 isCaretExistInCanvas = true;
             }
@@ -180,20 +151,12 @@ namespace TextCanvas
 
         private void textContainer_LostFocus(object sender, RoutedEventArgs e)
         {
-            
-            canvasPtr = ((HwndSource)PresentationSource.FromVisual(textContainer)).Handle;
-            if (canvasPtr != IntPtr.Zero)
-            {
-                CaretManager.HideCaret(canvasPtr);
-                CaretManager.DestroyCaret(canvasPtr);
-                isCaretExistInCanvas = false;
-            }
-           
+          
         }
 
         private void textContainer_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            textContainer.Focus();//InputManager.Current.PrimaryKeyboardDevice
+            textContainer.Focus();
         }
     }
 }

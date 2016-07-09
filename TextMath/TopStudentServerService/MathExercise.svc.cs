@@ -14,5 +14,11 @@ namespace TopStudentServerService
         public void DoWork()
         {
         }
+
+        public void GetExercises()
+        {
+            string myConn = System.Configuration.ConfigurationManager.ConnectionStrings["TopStudentDBConnection"].ConnectionString;
+            
+        }
     }
 }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
+using System.Windows;
 
 namespace TextCanvas
 {
@@ -25,5 +26,30 @@ namespace TextCanvas
 
         [DllImport("user32.dll", CharSet = CharSet.Auto, SetLastError = true)]
         public static extern bool DestroyCaret();
+
+        private static Point currentPoint;
+
+        public static Point CurrentPoint
+        {
+            get { return currentPoint; }
+            set { currentPoint = value; }
+        }
+
+        private static int width;
+
+        public static int Width
+        {
+            get { return width; }
+            set { width = value; }
+        }
+
+        private static int height;
+
+        public static int Height
+        {
+            get { return height; }
+            set { height = value; }
+        }
+                
     }
 }

@@ -9,8 +9,9 @@
             <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
         <Border BorderBrush="Blue" BorderThickness="1" Grid.Row="0">
-            <DockPanel>                           
-                <local:WorkPanel x:Name="textContainer" Background="White" IsHitTestVisible="True" Focusable="True" GotFocus="textContainer_GotFocus" LostFocus="textContainer_LostFocus" PreviewMouseLeftButtonDown="textContainer_PreviewMouseLeftButtonDown">
+            <DockPanel>
+                <TextBox DockPanel.Dock="Top" x:Name="testTextBox"></TextBox>
+                <local:WorkPanel x:Name="textContainer" FocusVisualStyle="{x:Null}" Background="White" IsHitTestVisible="True" Focusable="True" GotFocus="textContainer_GotFocus" LostFocus="textContainer_LostFocus" PreviewMouseLeftButtonDown="textContainer_PreviewMouseLeftButtonDown">
 
                 </local:WorkPanel>
             </DockPanel>
